@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +31,15 @@
     }
     .update-banner {
       text-align: center;
-      margin-bottom: 1rem;
+      margin: 0.5rem 0;
       color: #0f0;
       font-style: italic;
+    }
+    .last-updated {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 1rem;
     }
     .strain {
       background: #111;
@@ -40,54 +47,4 @@
       padding: 1rem;
       border-radius: 10px;
       border: 1px solid #007bff;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s ease;
-    }
-    .strain.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .strain h2 {
-      margin: 0 0 0.5rem;
-      color: #1c7aff;
-    }
-    .strain p {
-      margin: 0.2rem 0;
-    }
-    a.btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 10px 16px;
-      border-radius: 20px;
-      border: 1px solid #1c7aff;
-      background: #1c7aff;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a.btn:hover {
-      background: #0056cc;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    MedBud — Cannabis Library
-  </header>
-  <main>
-    <h1>🌱 Cannabis Strain Library</h1>
-    <p style="text-align:center;">Explore strains, their effects, and medical uses. (Demo auto-update)</p>
-    <p class="update-banner" id="updateBanner">Updating library… new entries detected</p>
-
-    <div id="library"></div>
-
-    <p style="text-align:center;">
-      <a href="medbud-dashboard.html" class="btn">← Back to Dashboard</a>
-    </p>
-  </main>
-
-  <script>
-    const strains = [
-      { name: "Blue Dream (Hybrid)", effects: "Creative, relaxed, focused", medical: "Stress, pain, depression" },
-      { name: "Granddaddy Purple (Indica)", effects: "Relaxing, sleepy, euphoric", medical: "Insomnia, muscle spasms, chronic
+      opacity

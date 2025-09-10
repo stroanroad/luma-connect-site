@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedBud Dashboard | Luma Connect</title>
+  <title>Cannabis Library | MedBud</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
     body {
@@ -23,27 +23,28 @@
       max-width: 900px;
       margin: 2rem auto;
       padding: 1rem;
-      background: rgba(0, 123, 255, 0.05);
-      border-radius: 12px;
     }
     h1 {
-      color: #00e0ff;
       text-align: center;
+      color: #00e0ff;
     }
-    .card {
+    .strain {
       background: #111;
+      margin: 1rem 0;
       padding: 1rem;
       border-radius: 10px;
-      margin: 1rem 0;
       border: 1px solid #007bff;
     }
-    .card h2 {
-      margin-top: 0;
+    .strain h2 {
+      margin: 0 0 0.5rem;
       color: #1c7aff;
+    }
+    .strain p {
+      margin: 0.2rem 0;
     }
     a.btn {
       display: inline-block;
-      margin-top: 1rem;
+      margin-top: 2rem;
       padding: 10px 16px;
       border-radius: 20px;
       border: 1px solid #1c7aff;
@@ -59,37 +60,32 @@
 </head>
 <body>
   <header>
-    MedBud Dashboard — Luma Connect
+    MedBud — Cannabis Library
   </header>
   <main>
-    <h1>Welcome to MedBud 🌱</h1>
-    <p style="text-align:center;">
-      Your hub for secure, anonymous, and accountable healthcare access.
-    </p>
+    <h1>🌱 Cannabis Strain Library</h1>
+    <p style="text-align:center;">Explore strains, their effects, and medical uses. (Demo data)</p>
 
-    <div class="card">
-      <h2>📋 Patient Records</h2>
-      <p>Encrypted, provable, and tamper-proof records. Coming soon.</p>
+    <div class="strain">
+      <h2>Blue Dream (Hybrid)</h2>
+      <p><strong>Effects:</strong> Creative, relaxed, focused</p>
+      <p><strong>Medical:</strong> Stress, pain, depression</p>
     </div>
 
-    <div class="card">
-      <h2>🌍 Network Access</h2>
-      <p>Anonymous by default, available in any country. No restrictions.</p>
+    <div class="strain">
+      <h2>Granddaddy Purple (Indica)</h2>
+      <p><strong>Effects:</strong> Relaxing, sleepy, euphoric</p>
+      <p><strong>Medical:</strong> Insomnia, muscle spasms, chronic pain</p>
     </div>
 
-    <div class="card">
-      <h2>🌱 Cannabis Library</h2>
-      <p>Browse strains, effects, and medical uses.</p>
-      <a href="cannabis-library.html" class="btn">Open Library</a>
-    </div>
-
-    <div class="card">
-      <h2>⚡ Test the System</h2>
-      <p>Public testing opens soon — run proofs, challenge our encryption, and verify results.</p>
+    <div class="strain">
+      <h2>Sour Diesel (Sativa)</h2>
+      <p><strong>Effects:</strong> Energetic, uplifting, creative</p>
+      <p><strong>Medical:</strong> Fatigue, stress, lack of appetite</p>
     </div>
 
     <p style="text-align:center;">
-      <a class="btn" href="index.html">← Back to Homepage</a>
+      <a href="medbud-dashboard.html" class="btn">← Back to Dashboard</a>
     </p>
   </main>
 </body>

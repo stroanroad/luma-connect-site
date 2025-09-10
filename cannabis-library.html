@@ -33,6 +33,13 @@
       margin: 0.5rem 0;
       color: #0f0;
       font-style: italic;
+      transition: all 0.3s ease;
+    }
+    .update-banner.flash {
+      color: #fff;
+      background: #0f0;
+      padding: 0.3rem;
+      border-radius: 6px;
     }
     .last-updated {
       text-align: center;
@@ -40,106 +47,5 @@
       color: #aaa;
       margin-bottom: 1rem;
     }
-    .strain {
-      background: #111;
-      margin: 1rem 0;
-      padding: 1rem;
-      border-radius: 10px;
-      border: 1px solid #007bff;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s ease;
-    }
-    .strain.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .strain h2 {
-      margin: 0 0 0.5rem;
-      color: #1c7aff;
-    }
-    .strain p {
-      margin: 0.2rem 0;
-    }
-    a.btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 10px 16px;
-      border-radius: 20px;
-      border: 1px solid #1c7aff;
-      background: #1c7aff;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a.btn:hover {
-      background: #0056cc;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    MedBud — Cannabis Library
-  </header>
-  <main>
-    <h1>🌱 Cannabis Strain Library</h1>
-    <p class="update-banner" id="updateBanner">Updating library… new entries detected</p>
-    <p class="last-updated" id="lastUpdated">Last Updated: waiting…</p>
+    .stra
 
-    <!-- Fallback message so it never looks empty -->
-    <div id="library">
-      <p style="text-align:center; color:#888;">Loading strains...</p>
-    </div>
-
-    <p style="text-align:center;">
-      <a href="medbud-dashboard.html" class="btn">← Back to Dashboard</a>
-    </p>
-  </main>
-
-  <script>
-    const strains = [
-      { name: "Blue Dream (Hybrid)", effects: "Creative, relaxed, focused", medical: "Stress, pain, depression" },
-      { name: "Granddaddy Purple (Indica)", effects: "Relaxing, sleepy, euphoric", medical: "Insomnia, muscle spasms, chronic pain" },
-      { name: "Sour Diesel (Sativa)", effects: "Energetic, uplifting, creative", medical: "Fatigue, stress, lack of appetite" },
-      { name: "Gelato (Hybrid)", effects: "Happy, euphoric, relaxing", medical: "Chronic pain, stress, fatigue" },
-      { name: "Northern Lights (Indica)", effects: "Sedating, relaxing", medical: "Insomnia, pain, depression" },
-      { name: "Green Crack (Sativa)", effects: "Energetic, uplifting, focus", medical: "Fatigue, stress, ADHD" }
-    ];
-
-    let index = 0;
-
-    function updateTimestamp() {
-      const now = new Date();
-      document.getElementById("lastUpdated").textContent =
-        "Last Updated: " + now.toLocaleTimeString();
-    }
-
-    function addStrain() {
-      if (index >= strains.length) return;
-      const strain = strains[index];
-      const div = document.createElement("div");
-      div.className = "strain";
-      div.innerHTML = `
-        <h2>${strain.name}</h2>
-        <p><strong>Effects:</strong> ${strain.effects}</p>
-        <p><strong>Medical:</strong> ${strain.medical}</p>
-      `;
-      const library = document.getElementById("library");
-
-      // remove fallback "Loading strains..." if still there
-      if (library.firstChild && library.firstChild.tagName !== "DIV") {
-        library.innerHTML = "";
-      }
-
-      library.appendChild(div);
-      setTimeout(() => div.classList.add("show"), 50);
-      index++;
-      updateTimestamp();
-    }
-
-    // Add first strain instantly, then auto-update every 5s
-    addStrain();
-    setInterval(addStrain, 5000);
-  </script>
-</body>
-</html>

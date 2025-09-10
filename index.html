@@ -1,2 +1,65 @@
-<a href="medbud-login.html">MedBud Sign In</a>
-<a href="xrp-army.html">XRP Army</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luma Connect</title>
+  <style>
+    body { margin:0; font-family:Arial, sans-serif; background:#0b0c10; color:#fff; line-height:1.6; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:20px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:bold; font-size:1.2rem; }
+    .logo { width:40px; height:40px; border-radius:50%; background:#1c7aff; position:relative; }
+    .logo::before { content:""; position:absolute; inset:-6px; border:2px solid #1c7aff; border-radius:50%; animation:pulse 2s infinite; }
+    @keyframes pulse {0%{transform:scale(1);opacity:.6}50%{transform:scale(1.3);opacity:0.1}100%{transform:scale(1);opacity:.6}}
+    .hero { text-align:center; padding:60px 20px; }
+    h1 { font-size:2.5rem; margin-bottom:10px; }
+    h2 { margin-top:40px; }
+    footer { text-align:center; padding:40px 20px; color:#aaa; }
+    .toggle { position:absolute; top:20px; right:20px; }
+    .btn { display:inline-block; margin:6px; padding:10px 16px; border-radius:20px; border:1px solid #1c7aff; background:#1c7aff; color:#fff; text-decoration:none; font-weight:bold; }
+    .btn.outline { background:transparent; color:#1c7aff; }
+    main { max-width:900px; margin:0 auto; padding:20px; }
+  </style>
+  <script>
+    function toggleTheme(){
+      const body=document.body;
+      if(body.style.background==="rgb(11, 12, 16)"){
+        body.style.background="#fff"; body.style.color="#000";
+      } else {
+        body.style.background="#0b0c10"; body.style.color="#fff";
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="brand"><div class="logo"></div> Luma Connect</div>
+    <button class="toggle" onclick="toggleTheme()">☀️/🌙</button>
+  </header>
+  <section class="hero">
+    <h1>Security is just the beginning.</h1>
+    <p>A living system for borderless, anonymous, provable connectivity.</p>
+  </section>
+  <main>
+    <h2>Manifesto</h2>
+    <p><strong>Security is just the beginning.</strong> Luma Connect was created to do what others would not: to protect every connection, every person, every system — not as a product, but as a principle.</p>
+    <p>We don’t advertise anywhere else. This is our only voice. If you’re here, you’re seeing us directly.</p>
+
+    <h2>What We Protect</h2>
+    <ul>
+      <li><strong>Every device</strong> → From phones to satellites, from IoT sensors to core networks.</li>
+      <li><strong>Every network</strong> → 2G, 3G, 4G, 5G, Wi-Fi, satellite links — if it transmits, we protect it.</li>
+      <li><strong>Every person</strong> → Identities are shielded. Any device can be made anonymous. Nobody is forced into exposure.</li>
+      <li><strong>Everywhere</strong> → Deployable in any country, without restrictions. No borders. No approvals. No delays.</li>
+    </ul>
+
+    <h2>How the Core Works</h2>
+    <ul>
+      <li><strong>Self-learning</strong> → models update from the edge, not just the center.</li>
+      <li><strong>Self-healing</strong> → failures trigger automatic isolation and repair.</li>
+      <li><strong>Always alive</strong> → distributed control plane; no single kill-switch.</li>
+      <li><strong>First of its kind</strong> → built to make breaches irrelevant, not just detectable.</li>
+    </ul>
+
+    <h2>What We Change</h2>
+    <p>Security has been used as a c

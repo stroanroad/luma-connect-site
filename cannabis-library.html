@@ -28,12 +28,25 @@
       text-align: center;
       color: #00e0ff;
     }
+    .update-banner {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #0f0;
+      font-style: italic;
+    }
     .strain {
       background: #111;
       margin: 1rem 0;
       padding: 1rem;
       border-radius: 10px;
       border: 1px solid #007bff;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+    .strain.show {
+      opacity: 1;
+      transform: translateY(0);
     }
     .strain h2 {
       margin: 0 0 0.5rem;
@@ -64,29 +77,17 @@
   </header>
   <main>
     <h1>🌱 Cannabis Strain Library</h1>
-    <p style="text-align:center;">Explore strains, their effects, and medical uses. (Demo data)</p>
+    <p style="text-align:center;">Explore strains, their effects, and medical uses. (Demo auto-update)</p>
+    <p class="update-banner" id="updateBanner">Updating library… new entries detected</p>
 
-    <div class="strain">
-      <h2>Blue Dream (Hybrid)</h2>
-      <p><strong>Effects:</strong> Creative, relaxed, focused</p>
-      <p><strong>Medical:</strong> Stress, pain, depression</p>
-    </div>
-
-    <div class="strain">
-      <h2>Granddaddy Purple (Indica)</h2>
-      <p><strong>Effects:</strong> Relaxing, sleepy, euphoric</p>
-      <p><strong>Medical:</strong> Insomnia, muscle spasms, chronic pain</p>
-    </div>
-
-    <div class="strain">
-      <h2>Sour Diesel (Sativa)</h2>
-      <p><strong>Effects:</strong> Energetic, uplifting, creative</p>
-      <p><strong>Medical:</strong> Fatigue, stress, lack of appetite</p>
-    </div>
+    <div id="library"></div>
 
     <p style="text-align:center;">
       <a href="medbud-dashboard.html" class="btn">← Back to Dashboard</a>
     </p>
   </main>
-</body>
-</html>
+
+  <script>
+    const strains = [
+      { name: "Blue Dream (Hybrid)", effects: "Creative, relaxed, focused", medical: "Stress, pain, depression" },
+      { name: "Granddaddy Purple (Indica)", effects: "Relaxing, sleepy, euphoric", medical: "Insomnia, muscle spasms, chronic

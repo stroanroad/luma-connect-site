@@ -62,9 +62,9 @@
     .strain p {
       margin: 0.2rem 0;
     }
-    a.btn {
+    a.btn, button.btn {
       display: inline-block;
-      margin-top: 2rem;
+      margin-top: 1rem;
       padding: 10px 16px;
       border-radius: 20px;
       border: 1px solid #1c7aff;
@@ -72,9 +72,20 @@
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
     }
-    a.btn:hover {
+    a.btn:hover, button.btn:hover {
       background: #0056cc;
+    }
+    .input-area {
+      text-align: center;
+      margin: 1rem 0 2rem;
+    }
+    .input-area input {
+      width: 70%;
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #007bff;
     }
   </style>
 </head>
@@ -87,9 +98,15 @@
     <p class="update-banner" id="updateBanner">Updating library… new entries detected</p>
     <p class="last-updated" id="lastUpdated">Last Updated: waiting…</p>
 
-    <!-- Fallback message so it never looks empty -->
+    <!-- Input for MedBud to paste stock list -->
+    <div class="input-area">
+      <input id="csvUrl" type="text" placeholder="Paste your Google Sheets CSV link here">
+      <button class="btn" onclick="loadStock()">Load Stock List</button>
+    </div>
+
+    <!-- Fallback message -->
     <div id="library">
-      <p style="text-align:center; color:#888;">Loading strains...</p>
+      <p style="text-align:center; color:#888;">Loading demo strains...</p>
     </div>
 
     <p style="text-align:center;">
@@ -98,16 +115,15 @@
   </main>
 
   <script>
-    const strains = [
+    // Demo strains (used until user pastes their stock link)
+    const demoStrains = [
       { name: "Blue Dream (Hybrid)", effects: "Creative, relaxed, focused", medical: "Stress, pain, depression" },
       { name: "Granddaddy Purple (Indica)", effects: "Relaxing, sleepy, euphoric", medical: "Insomnia, muscle spasms, chronic pain" },
-      { name: "Sour Diesel (Sativa)", effects: "Energetic, uplifting, creative", medical: "Fatigue, stress, lack of appetite" },
-      { name: "Gelato (Hybrid)", effects: "Happy, euphoric, relaxing", medical: "Chronic pain, stress, fatigue" },
-      { name: "Northern Lights (Indica)", effects: "Sedating, relaxing", medical: "Insomnia, pain, depression" },
-      { name: "Green Crack (Sativa)", effects: "Energetic, uplifting, focus", medical: "Fatigue, stress, ADHD" }
+      { name: "Sour Diesel (Sativa)", effects: "Energetic, uplifting, creative", medical: "Fatigue, stress, lack of appetite" }
     ];
 
     let index = 0;
+    let strains = [...demoStrains];
 
     function updateTimestamp() {
       const now = new Date();
@@ -127,7 +143,7 @@
       `;
       const library = document.getElementById("library");
 
-      // remove fallback "Loading strains..." if still there
+      // clear placeholder
       if (library.firstChild && library.firstChild.tagName !== "DIV") {
         library.innerHTML = "";
       }
@@ -138,10 +154,39 @@
       updateTimestamp();
     }
 
-    // Add first strain instantly, then auto-update every 5s
+    function loadStock() {
+      const url = document.getElementById("csvUrl").value.trim();
+      if (!url) return alert("Please paste a CSV link!");
+
+      fetch(url)
+        .then(res => res.text())
+        .then(data => {
+          const rows = data.split("\n").map(r => r.split(","));
+          strains = [];
+          for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (row.length >= 3) {
+              strains.push({
+                name: row[0],
+                effects: row[1],
+                medical: row[2]
+              });
+            }
+          }
+          index = 0;
+          document.getElementById("library").innerHTML = "";
+          addStrain();
+          setInterval(addStrain, 5000);
+        })
+        .catch(err => {
+          alert("Could not load stock list. Check your link.");
+          console.error(err);
+        });
+    }
+
+    // Start with demo data
     addStrain();
     setInterval(addStrain, 5000);
   </script>
 </body>
 </html>
-

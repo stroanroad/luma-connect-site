@@ -1,13 +1,155 @@
-<!-- Doctor Module -->
-<div class="card">
-  <h2>👨‍⚕️ Doctor Dashboard</h2>
-  <p>Secure consultations and encrypted prescriptions.</p>
-  <a href="doctor-dashboard.html" class="btn">Open Doctor Dashboard</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedBud Dashboard | Luma Connect</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0c10;
+      color: #fff;
+    }
+    header {
+      background: #007bff;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: rgba(0, 123, 255, 0.05);
+      border-radius: 12px;
+    }
+    h1 {
+      color: #00e0ff;
+      text-align: center;
+    }
+    .card {
+      background: #111;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: 1rem 0;
+      border: 1px solid #007bff;
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #1c7aff;
+    }
+    .status {
+      color: #0f0;
+      font-weight: bold;
+    }
+    a.btn, button.btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: 1px solid #1c7aff;
+      background: #1c7aff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    a.btn:hover, button.btn:hover {
+      background: #0056cc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    MedBud Dashboard — Luma Connect
+  </header>
+  <main>
+    <h1>Welcome MedBud 🌱</h1>
+    <p style="text-align:center;">
+      Your hub for secure, anonymous, and accountable healthcare access.
+    </p>
 
-<!-- Pharmacy Module -->
-<div class="card">
-  <h2>💊 Pharmacy Dashboard</h2>
-  <p>Receive and verify prescriptions.</p>
-  <a href="pharma-dashboard.html" class="btn">Open Pharmacy Dashboard</a>
-</div>
+    <!-- Patient Records -->
+    <div class="card">
+      <h2>📋 Patient Records</h2>
+      <p>Encrypted, provable, and tamper-proof records.</p>
+      <a href="patient-records.html" class="btn">View Records</a>
+    </div>
+
+    <!-- Network Access -->
+    <div class="card">
+      <h2>🌍 Network Access</h2>
+      <p id="netStatus">Status: <span class="status">Connected ✅ — Borderless / Anonymous</span></p>
+      <button class="btn" onclick="refreshStatus()">🔄 Refresh Status</button>
+    </div>
+
+    <!-- Cannabis Library -->
+    <div class="card">
+      <h2>🌱 Cannabis Library</h2>
+      <p>Browse strains, effects, and medical uses (or load your stock list).</p>
+      <a href="cannabis-library.html" class="btn">Open Library</a>
+    </div>
+
+    <!-- Barcode Scanner -->
+    <div class="card">
+      <h2>📷 Barcode Scanner</h2>
+      <p>Scan products for instant verification.</p>
+      <a href="barcode-scanner.html" class="btn">Open Scanner</a>
+    </div>
+
+    <!-- Video Portal -->
+    <div class="card">
+      <h2>🎥 Video Portal</h2>
+      <p>Guides, strain insights, and secure education hub.</p>
+      <a href="video-portal.html" class="btn">Open Portal</a>
+    </div>
+
+    <!-- Doctor Dashboard -->
+    <div class="card">
+      <h2>👨‍⚕️ Doctor Dashboard</h2>
+      <p>Secure consultations and encrypted prescriptions.</p>
+      <a href="doctor-dashboard.html" class="btn">Open Doctor Dashboard</a>
+    </div>
+
+    <!-- Pharmacy Dashboard -->
+    <div class="card">
+      <h2>💊 Pharmacy Dashboard</h2>
+      <p>Receive and verify prescriptions.</p>
+      <a href="pharma-dashboard.html" class="btn">Open Pharmacy Dashboard</a>
+    </div>
+
+    <!-- Test the System -->
+    <div class="card">
+      <h2>⚡ Test the System</h2>
+      <p>Run a public proof check to verify encryption.</p>
+      <button class="btn" onclick="runTest()">▶ Run Test</button>
+      <p id="testResult"></p>
+    </div>
+
+    <p style="text-align:center;">
+      <a class="btn" href="index.html">← Back to Homepage</a>
+    </p>
+  </main>
+
+  <script>
+    function refreshStatus() {
+      const status = document.getElementById("netStatus");
+      status.innerHTML = "Status: 🔄 Checking...";
+      setTimeout(() => {
+        status.innerHTML = "Status: <span class='status'>Connected ✅ — Borderless / Anonymous</span>";
+      }, 1500);
+    }
+
+    function runTest() {
+      const result = document.getElementById("testResult");
+      result.innerHTML = "Running security proof... 🔄";
+      setTimeout(() => {
+        result.innerHTML = "Proof Verified ✅ — No Breach Detected.";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

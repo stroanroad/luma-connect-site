@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Records | MedBud</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0c10;
+      color: #fff;
+    }
+    header {
+      background: #007bff;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #111;
+      border-radius: 12px;
+      border: 1px solid #007bff;
+    }
+    h1 {
+      color: #00e0ff;
+      text-align: center;
+    }
+    .record {
+      margin-top: 1rem;
+      background: #000;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px dashed #1c7aff;
+      font-size: 0.95rem;
+    }
+    .record strong {
+      color: #1c7aff;
+    }
+    .status {
+      color: #0f0;
+      font-weight: bold;
+    }
+    a.btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: 1px solid #1c7aff;
+      background: #1c7aff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.btn:hover {
+      background: #0056cc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    MedBud — Patient Records
+  </header>
+  <main>
+    <h1>🩺 Encrypted Patient Record</h1>
+    <div class="record">
+      <p><strong>Anon ID:</strong> ANON-234A</p>
+      <p><strong>Date:</strong> 2025-09-10</p>
+      <p><strong>Doctor:</strong> Dr. Smith</p>
+      <p><strong>Diagnosis:</strong> Chronic Pain</p>
+      <p><strong>Prescription:</strong> Cannabis — 2g/day (Hybrid)</p>
+      <p><strong>Record Hash:</strong> 9f8d2a7c0192bfe88c12d3e7f1e91...</p>
+      <p><strong>Status:</strong> <span class="status">Encrypted ✅</span></p>
+      <p><strong>Integrity:</strong> <span class="status">Verified ✅</span></p>
+    </div>
+
+    <p style="text-align:center;">
+      <a href="medbud-dashboard.html" class="btn">← Back to Dashboard</a>
+    </p>
+  </main>
+</body>
+</html>

@@ -4,115 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Medical Cannabis Encyclopedia | MedBud</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0c10;
-      color: #fff;
-    }
-    header {
-      background: #007bff;
-      padding: 1rem;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.3rem;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: rgba(0, 123, 255, 0.05);
-      border-radius: 12px;
-    }
-    h1 {
-      color: #00e0ff;
-      text-align: center;
-    }
-    input {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-      border: 1px solid #1c7aff;
-      font-size: 1rem;
-    }
-    .entry {
-      background: #111;
-      padding: 1rem;
-      border-radius: 10px;
-      margin: 1rem 0;
-      border: 1px solid #1c7aff;
-    }
-    .entry h2 {
-      margin: 0;
-      color: #1c7aff;
-    }
-    .entry p {
-      margin: 0.5rem 0 0;
-    }
+    body { margin:0; font-family:Arial,sans-serif; background:#0b0c10; color:#fff; }
+    header { background:#007bff; padding:1rem; text-align:center; font-weight:bold; font-size:1.3rem; }
+    main { max-width:900px; margin:2rem auto; padding:1rem; }
+    h1 { color:#00e0ff; text-align:center; }
+    .entry { background:#111; padding:1rem; border-radius:10px; margin:1rem 0; border:1px solid #1c7aff; }
+    .entry h2 { margin:0; color:#1c7aff; }
     a.btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 10px 16px;
-      border-radius: 20px;
-      border: 1px solid #1c7aff;
-      background: #1c7aff;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
+      display:inline-block;
+      margin-top:2rem;
+      padding:10px 16px;
+      border-radius:20px;
+      border:1px solid #1c7aff;
+      background:#1c7aff;
+      color:#fff;
+      text-decoration:none;
+      font-weight:bold;
     }
-    a.btn:hover {
-      background: #0056cc;
-    }
+    a.btn:hover { background:#0056cc; }
   </style>
 </head>
 <body>
   <header>📚 Medical Cannabis Encyclopedia — MedBud</header>
   <main>
-    <h1>Search Knowledge Base</h1>
-    <input type="text" id="search" placeholder="Search by condition, strain, or keyword...">
+    <h1>Knowledge Base</h1>
 
-    <div id="entries">
-      <div class="entry" data-keywords="ptsd trauma stress anxiety thc hybrid">
-        <h2>PTSD & Cannabis</h2>
-        <p>Peer-reviewed studies show THC-rich hybrids may reduce nightmares and anxiety in PTSD patients.</p>
-        <p><em>Source: Journal of Psychopharmacology (2019)</em></p>
-      </div>
-      <div class="entry" data-keywords="pain cbd inflammation arthritis neuropathy">
-        <h2>Cannabis for Pain Relief</h2>
-        <p>CBD-dominant strains reduce inflammation and neuropathic pain with minimal psychoactive effects.</p>
-        <p><em>Source: European Journal of Pain (2018)</em></p>
-      </div>
-      <div class="entry" data-keywords="cbd epilepsy seizures children treatment">
-        <h2>CBD in Epilepsy</h2>
-        <p>Clinical trials confirm CBD is effective in reducing seizures in children with treatment-resistant epilepsy.</p>
-        <p><em>Source: NEJM (2017)</em></p>
-      </div>
-      <div class="entry" data-keywords="cancer chemotherapy nausea appetite sativa">
-        <h2>Cannabis in Cancer Care</h2>
-        <p>Sativa strains help reduce chemotherapy-induced nausea and restore appetite.</p>
-        <p><em>Source: Cancer Medicine (2020)</em></p>
-      </div>
+    <div class="entry">
+      <h2>PTSD & Cannabis</h2>
+      <p>THC-rich hybrids may reduce nightmares and anxiety in PTSD patients.</p>
+      <p><em>Source: Journal of Psychopharmacology (2019)</em></p>
+    </div>
+
+    <div class="entry">
+      <h2>Pain Relief</h2>
+      <p>CBD-dominant strains reduce inflammation and neuropathic pain.</p>
+      <p><em>Source: European Journal of Pain (2018)</em></p>
+    </div>
+
+    <div class="entry">
+      <h2>CBD in Epilepsy</h2>
+      <p>CBD is effective in reducing seizures in treatment-resistant epilepsy.</p>
+      <p><em>Source: NEJM (2017)</em></p>
+    </div>
+
+    <div class="entry">
+      <h2>Cancer Care</h2>
+      <p>Sativa strains may reduce chemotherapy-induced nausea and restore appetite.</p>
+      <p><em>Source: Cancer Medicine (2020)</em></p>
     </div>
 
     <p style="text-align:center;">
       <a href="medbud-dashboard.html" class="btn">← Back to Dashboard</a>
     </p>
   </main>
-
-  <script>
-    const searchInput = document.getElementById("search");
-    const entries = document.querySelectorAll(".entry");
-
-    searchInput.addEventListener("input", () => {
-      const query = searchInput.value.toLowerCase();
-      entries.forEach(entry => {
-        const keywords = entry.dataset.keywords.toLowerCase();
-        entry.style.display = keywords.includes(query) ? "block" : "none";
-      });
-    });
-  </script>
 </body>
 </html>
+

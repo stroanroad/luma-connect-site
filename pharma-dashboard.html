@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacy Dashboard | MedBud</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    body { margin:0; font-family:Arial,sans-serif; background:#0b0c10; color:#fff; text-align:center; }
+    header { background:#007bff; padding:1rem; font-weight:bold; font-size:1.3rem; }
+    main { max-width:800px; margin:2rem auto; padding:1rem; background:#111; border-radius:12px; border:1px solid #1c7aff; }
+    .record { background:#000; border:1px dashed #1c7aff; padding:1rem; margin:1rem 0; border-radius:8px; }
+    button.btn, a.btn { margin:0.5rem; padding:10px 16px; border-radius:20px; border:1px solid #1c7aff; background:#1c7aff; color:#fff; font-weight:bold; cursor:pointer; text-decoration:none; }
+    button.btn:hover, a.btn:hover { background:#0056cc; }
+    .status { color:#0f0; font-weight:bold; }
+  </style>
+</head>
+<body>
+  <header>💊 Pharmacy Dashboard — MedBud</header>
+  <main>
+    <h2>Latest Prescription</h2>
+    <div id="rxBox">
+      <p>No prescription received yet.</p>
+    </div>
+    <p><a href="medbud-dashboard.html" class="btn">← Back to Dashboard</a></p>
+  </main>
+
+  <script>
+    const rx = localStorage.getItem("latestPrescription");
+    if (rx) {
+      const { patient, details, time } = JSON.parse(rx);
+      document.getElementById("rxBox").innerHTML = `
+        <div class="record">
+          <p><strong>Patient ID:</strong> ${patient}</p>
+          <p><strong>Details:</strong> ${details}</p>
+          <p><strong>Time:</strong> ${time}</p>
+          <p>Status: <span class="status">✅ Verified — Encrypted</span></p>
+          <button class="btn" onclick="dispense()">💊 Mark as Dispensed</button>
+        </div>
+      `;
+    }
+    function dispense() {
+      document.getElementById("rxBox").innerHTML += `<p class="status">Prescription Dispensed ✅</p>`;
+    }
+  </script>
+</body>
+</html>

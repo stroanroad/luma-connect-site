@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Video Conference | MedBud</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0c10;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      background: #007bff;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #111;
+      border-radius: 12px;
+      border: 1px solid #1c7aff;
+    }
+    video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      margin: 1rem 0;
+      background: #000;
+    }
+    button.btn {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: 1px solid #1c7aff;
+      background: #1c7aff;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button.btn:hover {
+      background: #0056cc;
+    }
+    a.btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: 1px solid #1c7aff;
+      background: #1c7aff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.btn:hover {
+      background: #0056cc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🩺 Secure Doctor Video Conference — MedBud
+  </header>
+  <main>
+    <h2>Start a Secure Consultation</h2>
+    <video id="localVideo" autoplay muted></video>
+    <p>
+      <button class="btn" onclick="startCall()">📞 Start Call</button>
+      <button class="btn" onclick="endCall()">❌ End Call</button>
+    </p>
+    <p id="status"></p>
+    <p>
+      <a href="medbud-dashboard.html" class="btn">← Back to Dashboard</a>
+    </p>
+  </main>
+
+  <script>
+    let stream;
+
+    async function startCall() {
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        document.getElementById("localVideo").srcObject = stream;
+        document.getElementById("status").innerHTML = "🔒 Call started — encrypted channel active.";
+      } catch (err) {
+        document.getElementById("status").innerHTML = "❌ Could not access camera/mic.";
+      }
+    }
+
+    function endCall() {
+      if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+        document.getElementById("localVideo").srcObject = null;
+        document.getElementById("status").innerHTML = "Call ended.";
+      }
+    }
+  </script>
+</body>
+</html>

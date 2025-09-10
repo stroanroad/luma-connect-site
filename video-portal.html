@@ -73,9 +73,10 @@
   </header>
   <main>
     <h1>Educational & Strain Videos</h1>
-    <p style="text-align:center;">Explore guides, strain info, and community updates.</p>
+    <p style="text-align:center;">Latest guides, strain info, and updates — auto-refreshed from YouTube.</p>
 
-    <div class="grid">
+    <div id="videoGrid" class="grid">
+      <!-- Fallback demo videos -->
       <div class="video-card">
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         <h2>Intro to MedBud</h2>
@@ -97,5 +98,45 @@
       <a href="medbud-dashboard.html" class="btn">← Back to Dashboard</a>
     </p>
   </main>
+
+  <script>
+    // 🔹 Setup for YouTube Auto-Update
+    const API_KEY = ""; // TODO: add your YouTube Data API key
+    const PLAYLIST_ID = ""; // TODO: add MedBud's playlist ID
+    const videoGrid = document.getElementById("videoGrid");
+
+    async function loadVideos() {
+      if (!API_KEY || !PLAYLIST_ID) return; // keep demo videos if not configured
+
+      try {
+        const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=6&playlistId=${PLAYLIST_ID}&key=${API_KEY}`;
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (data.items) {
+          videoGrid.innerHTML = ""; // clear fallback
+          data.items.forEach(item => {
+            const videoId = item.snippet.resourceId.videoId;
+            const title = item.snippet.title;
+            const desc = item.snippet.description.substring(0, 80) + "...";
+
+            const card = document.createElement("div");
+            card.className = "video-card";
+            card.innerHTML = `
+              <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
+              <h2>${title}</h2>
+              <p>${desc}</p>
+            `;
+            videoGrid.appendChild(card);
+          });
+        }
+      } catch (err) {
+        console.error("YouTube fetch error:", err);
+      }
+    }
+
+    // Try to load live videos if API details are added
+    loadVideos();
+  </script>
 </body>
 </html>

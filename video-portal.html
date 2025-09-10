@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Portal | MedBud</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0c10;
+      color: #fff;
+    }
+    header {
+      background: #007bff;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    h1 {
+      color: #00e0ff;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .video-card {
+      background: #111;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid #1c7aff;
+    }
+    .video-card h2 {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      color: #1c7aff;
+    }
+    iframe {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      border: none;
+    }
+    a.btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: 1px solid #1c7aff;
+      background: #1c7aff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.btn:hover {
+      background: #0056cc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🎥 MedBud Video Portal
+  </header>
+  <main>
+    <h1>Educational & Strain Videos</h1>
+    <p style="text-align:center;">Explore guides, strain info, and community updates.</p>
+
+    <div class="grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <h2>Intro to MedBud</h2>
+        <p>What the system is and how it empowers patients.</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/kfVsfOSbJY0" allowfullscreen></iframe>
+        <h2>Understanding Strains</h2>
+        <p>Differences between Indica, Sativa, and Hybrids.</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" allowfullscreen></iframe>
+        <h2>Secure Healthcare Access</h2>
+        <p>How Luma Connect protects medical records.</p>
+      </div>
+    </div>
+
+    <p style="text-align:center;">
+      <a href="medbud-dashboard.html" class="btn">← Back to Dashboard</a>
+    </p>
+  </main>
+</body>
+</html>

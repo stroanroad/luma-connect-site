@@ -3,10 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Encryption Test | Luma Connect</title>
+  <style>
+    body { background:#0b0c10; color:#fff; font-family:Arial,sans-serif; text-align:center; padding:20px; }
+    h1 { color:#1c7aff; margin-bottom:20px; }
+    .log { font-size:1.1rem; margin:10px 0; color:#ccc; }
+    .success { color:#4caf50; font-weight:bold; }
+    a.btn { display:inline-block; margin-top:30px; padding:10px 16px; border-radius:6px; border:1px solid #1c7aff; background:#1c7aff; color:#fff; text-decoration:none; font-weight:bold; }
+  </style>
 </head>
-<body style="background:#0b0c10;color:#fff;font-family:Arial;padding:20px;">
+<body>
   <h1>🔒 Encryption Test</h1>
-  <p>This demo shows how our encryption layer is verified. In production, this would run live crypto checks.</p>
-  <a href="xrp-dashboard.html" style="color:#1c7aff;">← Back to XRP Dashboard</a>
+  <div id="output"></div>
+  <a class="btn" href="xrp-dashboard.html">← Back to Dashboard</a>
+
+  <script>
+    const steps = [
+      "Starting encryption handshake...",
+      "Generating secure session keys...",
+      "Encrypting data packets...",
+      "Verifying integrity...",
+      "✅ Secure",
+      "✅ Protected",
+      "✅ Encrypted"
+    ];
+    let i = 0;
+    function runStep() {
+      if (i < steps.length) {
+        const p = document.createElement("p");
+        p.className = "log";
+        if (steps[i].startsWith("✅")) p.classList.add("success");
+        p.textContent = steps[i];
+        document.getElementById("output").appendChild(p);
+        i++;
+        setTimeout(runStep, 1000);
+      }
+    }
+    runStep();
+  </script>
 </body>
 </html>

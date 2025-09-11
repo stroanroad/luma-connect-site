@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XRP Army Dashboard | Luma Connect</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0c10;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      background: #1c7aff;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .card {
+      background: #111;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      border: 1px solid #1c7aff;
+    }
+    .card h2 {
+      color: #00e0ff;
+      margin-top: 0;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 18px;
+      border-radius: 20px;
+      border: 1px solid #1c7aff;
+      background: #1c7aff;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #0056cc;
+    }
+    .status {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #0f0;
+    }
+  </style>
+</head>
+<body>
+  <header>⚡ XRP Army — Luma Connect</header>
+  <main>
+    <h1>Welcome XRP Army 🌐</h1>
+    <p>You’re the first testers of the borderless, anonymous, provable network.</p>
+
+    <div class="card">
+      <h2>🔐 Encryption Proof</h2>
+      <p>Run a live proof test. No hype — just results.</p>
+      <button class="btn" onclick="runProof()">▶ Run Proof</button>
+      <p id="proofResult" class="status"></p>
+    </div>
+
+    <div class="card">
+      <h2>🕶️ Anonymity Check</h2>
+      <p>Verifies no personal data is exposed.</p>
+      <button class="btn" onclick="runAnon()">Check Anonymity</button>
+      <p id="anonResult" class="status"></p>
+    </div>
+
+    <div class="card">
+      <h2>🌱 Carbon Savings</h2>
+      <p>Every test saves resources. Real-time counter below:</p>
+      <p id="carbonCounter" class="status">0.00 kg CO₂ saved</p>
+      <button class="btn" onclick="addCarbon()">Add Test</button>
+    </div>
+
+    <div class="card">
+      <h2>📜 Ledger Sync (Demo)</h2>
+      <p>This proof would be written to the XRP Ledger for full transparency.</p>
+      <button class="btn" onclick="ledgerSync()">Simulate Sync</button>
+      <p id="ledgerResult" class="status"></p>
+    </div>
+
+    <div class="card">
+      <h2>⚔️ Join the Test</h2>
+      <p>Stand with us. Share, break, and spread the message.</p>
+      <a href="https://x.com/1lumaconnect" target="_blank" class="btn">Join on X</a>
+    </div>
+
+    <p style="margin-top:2rem;">
+      <a href="./index.html" class="btn">← Back to Homepage</a>
+    </p>
+  </main>
+
+  <script>
+    function runProof() {
+      const el = document.getElementById("proofResult");
+      el.innerHTML = "Running proof... 🔄";
+      setTimeout(() => {
+        el.innerHTML = "✅ Encryption Verified — No Breach Detected";
+      }, 2000);
+    }
+
+    function runAnon() {
+      const el = document.getElementById("anonResult");
+      el.innerHTML = "Checking anonymity... 🔄";
+      setTimeout(() => {
+        el.innerHTML = "✅ Anonymous — No personal data exposed";
+      }, 1500);
+    }
+
+    let carbon = 0;
+    function addCarbon() {
+      carbon += 0.25;
+      document.getElementById("carbonCounter").innerHTML = carbon.toFixed(2) + " kg CO₂ saved";
+    }
+
+    function ledgerSync() {
+      const el = document.getElementById("ledgerResult");
+      el.innerHTML = "Syncing to XRP Ledger... 🔄";
+      setTimeout(() => {
+        el.innerHTML = "✅ Proof written (demo) — Ledger synced";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

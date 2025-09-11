@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,16 +21,6 @@
     h1 {
       color: #1c7aff;
       margin-bottom: 10px;
-    }
-    #counter-box {
-      margin: 20px auto;
-      padding: 20px;
-      border: 2px solid #1c7aff;
-      border-radius: 12px;
-      max-width: 400px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
     }
     .dashboard {
       display: grid;
@@ -71,84 +62,33 @@
       color: #888;
     }
   </style>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-    import { getDatabase, ref, onValue, onDisconnect, set } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyDsM6IIqxjZrx8MPDioZRsMEUjD-bexI8Q",
-      authDomain: "luma-connect.firebaseapp.com",
-      databaseURL: "https://luma-connect-default-rtdb.europe-west1.firebasedatabase.app/",
-      projectId: "luma-connect",
-      storageBucket: "luma-connect.firebasestorage.app",
-      messagingSenderId: "861420140101",
-      appId: "1:861420140101:web:631322e98b5653e5a8152c",
-      measurementId: "G-ZP6GTPQ9K9"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-
-    const userRef = ref(db, "onlineUsers");
-    const myId = Date.now() + "-" + Math.random();
-    const myRef = ref(db, "onlineUsers/" + myId);
-
-    console.log("Writing user entry:", myId);
-    set(myRef, true)
-      .then(() => console.log("✅ Write success"))
-      .catch(err => console.error("❌ Write error:", err));
-
-    onDisconnect(myRef).remove();
-
-    onValue(userRef, (snapshot) => {
-      console.log("Snapshot data:", snapshot.val());
-      const users = snapshot.val();
-      const count = users ? Object.keys(users).length : 0;
-      document.getElementById("online-count").innerText = count;
-    });
-  </script>
 </head>
 <body>
   <header>
     <h1>⚡ XRP Army Dashboard</h1>
-    <p>Together we prove scalability, anonymity, and freedom. Join in — the more online, the stronger the test.</p>
+    <p>Help us stress test Luma Connect. Click into the modules below and explore.</p>
   </header>
-
-  <div id="counter-box">
-    🌍 Users Online Now: <span id="online-count">0</span>
-  </div>
 
   <div class="dashboard">
     <div class="card">
       <h2>Encryption Proof</h2>
-      <p>Run live checks to verify our system’s encryption.</p>
+      <p>Run demo checks to see how our encryption layer works.</p>
       <a class="btn" href="encryption-test.html">Start Test</a>
     </div>
     <div class="card">
       <h2>Anonymous Mode</h2>
-      <p>Test anonymous connectivity across devices.</p>
+      <p>Demo how devices connect anonymously without exposure.</p>
       <a class="btn" href="anonymous-test.html">Go Anonymous</a>
     </div>
     <div class="card">
       <h2>Carbon Savings</h2>
-      <p>See how much energy is saved with optimised routing.</p>
+      <p>Visualise how routing efficiency reduces carbon automatically.</p>
       <a class="btn" href="carbon-test.html">View Savings</a>
     </div>
     <div class="card">
       <h2>Global Access</h2>
-      <p>Confirm unrestricted access across regions.</p>
+      <p>Check worldwide availability without borders or restrictions.</p>
       <a class="btn" href="global-test.html">Test Access</a>
-    </div>
-    <div class="card">
-      <h2>Cannabis Library</h2>
-      <p>Explore strains, effects, and medical uses.</p>
-      <a class="btn" href="cannabis-library.html">View Library</a>
-    </div>
-    <div class="card">
-      <h2>Encyclopedia</h2>
-      <p>Peer-reviewed research and resources.</p>
-      <a class="btn" href="encyclopedia.html">Explore Encyclopedia</a>
     </div>
   </div>
 

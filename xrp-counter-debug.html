@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counter Debug</title>
+</head>
+<body>
+  <h1>Counter Debug</h1>
+  <p>Users Online: <span id="online-count">0</span></p>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { getDatabase, ref, onValue, onDisconnect, set } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDsM6IIqxjZrx8MPDioZRsMEUjD-bexI8Q",
+      authDomain: "luma-connect.firebaseapp.com",
+      databaseURL: "https://luma-connect-default-rtdb.europe-west1.firebasedatabase.app/",
+      projectId: "luma-connect",
+      storageBucket: "luma-connect.firebasestorage.app",
+      messagingSenderId: "861420140101",
+      appId: "1:861420140101:web:631322e98b5653e5a8152c",
+      measurementId: "G-ZP6GTPQ9K9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const userRef = ref(db, "onlineUsers");
+    const myId = Date.now() + "-" + Math.random();
+    const myRef = ref(db, "onlineUsers/" + myId);
+
+    console.log("Writing user entry:", myId);
+    set(myRef, true)
+      .then(() => console.log("✅ Write success"))
+      .catch(err => console.error("❌ Write error:", err));
+
+    onDisconnect(myRef).remove();
+
+    onValue(userRef, (snapshot) => {
+      console.log("Snapshot data:", snapshot.val());
+      const users = snapshot.val();
+      const count = users ? Object.keys(users).length : 0;
+      document.getElementById("online-count").innerText = count;
+    });
+  </script>
+</body>
+</html>
